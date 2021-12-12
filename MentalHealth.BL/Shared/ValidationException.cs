@@ -1,4 +1,6 @@
-﻿namespace MentalHealth.BL.Shared
+﻿using AwesomeShop.BusinessLogic.Shared;
+
+namespace MentalHealth.BL.Shared
 {
     public class ValidationException : BusinessLogicException
     {
@@ -6,9 +8,9 @@
         {
             ValidationMessage = validationMessage;
         }
-        
+
         public string ValidationMessage { get; }
-        
+
         public override ErrorType Type => ErrorType.Invalid;
 
     }

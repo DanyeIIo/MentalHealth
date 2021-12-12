@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MentalHealth.DAL.Entities
+namespace MentalHealth.BL.DTO
 {
-    public class Admin
+    public class EmotionDTO
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using MentalHealth.API.Shared;
 using MentalHealth.DAL;
 using Microsoft.EntityFrameworkCore;
+using MentalHealth.DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace MentalHealth.API
 {
@@ -41,6 +43,8 @@ namespace MentalHealth.API
                 .EnableSensitiveDataLogging()
             );
 
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             services.AddSwaggerGen(c =>
@@ -65,7 +69,8 @@ namespace MentalHealth.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
