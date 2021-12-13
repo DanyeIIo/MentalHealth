@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 using MentalHealth.API.Shared;
 using MentalHealth.DAL;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace MentalHealth.API
 {
@@ -47,9 +50,20 @@ namespace MentalHealth.API
             {
                 c.SwaggerDoc("v1", new()
                 {
-                    Title = "MentalHealth.API", Version = "v1" 
+                    Title = "MentalHealth.API",
+                    Version = "v1"
                 });
             });
+
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //    {
+            //        _configuration.Bind(TokenIssuerOptions.Section, options);
+            //        var tokenOptions = new TokenIssuerOptions();
+            //        _configuration.Bind(TokenIssuerOptions.Section, tokenOptions);
+            //        options.TokenValidationParameters.IssuerSigningKey =
+            //            new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenOptions.Secret));
+            //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,13 +73,19 @@ namespace MentalHealth.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MentalHealth.API v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MentalHealth.API v1");
+                    c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+                });
+                    
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
