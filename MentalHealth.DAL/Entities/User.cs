@@ -11,5 +11,7 @@ namespace MentalHealth.DAL.Entities
     {        
         public DateTime DateOfBirth { get; set; }
         public List<Emotion> Emotions { get; set; }
+
+        
     }
 }
