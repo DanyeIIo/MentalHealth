@@ -1,5 +1,5 @@
 .nav {
-    width: 20%;
+    width: max(25%, 350px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,5 +8,8 @@
         &:hover {
             color: purple;
         }
+    }
+    .sign_in {
+        padding: 0 1.5em;
     }
 }
