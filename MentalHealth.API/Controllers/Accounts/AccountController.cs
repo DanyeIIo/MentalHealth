@@ -1,6 +1,7 @@
 ﻿using MentalHealth.Core.Models.Requests.Account;
 using MentalHealth.Core.Models.Responses.Account;
 using MentalHealth.Core.Services;
+using MentalHealth.DAL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,10 +27,10 @@ namespace MentalHealth.API.Controllers.Accounts
         [ProducesResponseType(typeof(AuthenticationResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> Register(RegisterRequest request, CancellationToken cancellationToken = default)
         {
-            var response = await _userService.RegisterAsync(request, System.Guid.Empty, cancellationToken);
+            var response = await _userService.RegisterAsync(request, IdManager.UserRoleId, cancellationToken);
 
             if (!response.IsSuccess)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Email or password is incorrect" });
 
             return Ok(response);
         }
@@ -42,7 +43,7 @@ namespace MentalHealth.API.Controllers.Accounts
             var response = await _userService.LoginAsync(model, cancellationToken);
 
             if (!response.IsSuccess)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Email or password is incorrect" });
 
             return Ok(response);
         }

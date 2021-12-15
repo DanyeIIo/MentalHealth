@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MentalHealth.BL.Shared;
+using System;
 
 namespace AwesomeShop.BusinessLogic.Shared
 {

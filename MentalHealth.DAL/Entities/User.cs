@@ -11,6 +11,8 @@ namespace MentalHealth.DAL.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public string Email { get; set; }
+        
+        public string PasswordHash { get; set; }
 
         public DateTime BirthDate { get; set; }
 
@@ -18,7 +20,7 @@ namespace MentalHealth.DAL.Entities
 
         public Guid RoleId { get; set; }
 
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
 
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
 

@@ -1,4 +1,6 @@
-﻿namespace MentalHealth.BL.Shared
+﻿using AwesomeShop.BusinessLogic.Shared;
+
+namespace MentalHealth.BL.Shared
 {
     public class ResourceNotFoundException : BusinessLogicException
     {

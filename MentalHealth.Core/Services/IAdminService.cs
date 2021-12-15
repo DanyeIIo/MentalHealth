@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MentalHealth.DAL
+namespace MentalHealth.Core.Services
 {
-    public interface IHasher
+    public interface IAdminService
     {
-        //string HashPassword(User user, string password);
     }
 }

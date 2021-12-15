@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MentalHealth.DAL.Entities
 {
-    public class Test
+    public class Test // For the future
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }

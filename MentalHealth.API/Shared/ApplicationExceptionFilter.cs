@@ -1,4 +1,5 @@
-﻿using MentalHealth.BL.Shared;
+﻿using AwesomeShop.BusinessLogic.Shared;
+using MentalHealth.BL.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;

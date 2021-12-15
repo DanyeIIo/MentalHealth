@@ -10,8 +10,8 @@ namespace MentalHealth.Core.Models.Requests.Account
     public class LoginRequest
     {
         [Required]
-        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",
-            ErrorMessage = "Invalid mail adress")]
+        //[RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",
+        //    ErrorMessage = "Invalid mail adress")]
         public string Email { get; set; }
 
         [Required]

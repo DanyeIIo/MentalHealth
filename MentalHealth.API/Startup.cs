@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using MentalHealth.Core.Models.Requests.Account;
 
 namespace MentalHealth.API
 {
@@ -28,7 +29,6 @@ namespace MentalHealth.API
         {
             _configuration = configuration;
         }
-
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -42,9 +42,8 @@ namespace MentalHealth.API
                         options.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery))
                 .EnableDetailedErrors()
                 .EnableSensitiveDataLogging()
+                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("MentalHealth.API"))
             );
-
-
 
             services.AddSwaggerGen(c =>
             {
@@ -53,17 +52,26 @@ namespace MentalHealth.API
                     Title = "MentalHealth.API",
                     Version = "v1"
                 });
+
+                c.CustomSchemaIds(x => x.FullName);
+            })
+            .AddUserServices(_configuration);
+
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                _configuration.Bind(TokenIssuerOptions.Section, options);
+                var tokenOptions = new TokenIssuerOptions();
+                _configuration.Bind(TokenIssuerOptions.Section, tokenOptions);
+                options.TokenValidationParameters.IssuerSigningKey =
+                    new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenOptions.Secret));
             });
 
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //    {
-            //        _configuration.Bind(TokenIssuerOptions.Section, options);
-            //        var tokenOptions = new TokenIssuerOptions();
-            //        _configuration.Bind(TokenIssuerOptions.Section, tokenOptions);
-            //        options.TokenValidationParameters.IssuerSigningKey =
-            //            new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenOptions.Secret));
-            //    });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Default", builder => builder.RequireAuthenticatedUser());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

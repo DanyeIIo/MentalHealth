@@ -9,7 +9,7 @@ namespace MentalHealth.Core.Models
     public class User
     {
         public string Email { get; set; }
-
+        public string PasswordHash { get; set; }
         public Guid Id { get; set; }
 
         public DateTime BirthDate { get; set; }
@@ -17,5 +17,6 @@ namespace MentalHealth.Core.Models
         public Guid RoleId { get; set; }
 
         public string RoleName { get; set; }
+        public string JobTitle { get; set; }
     }
 }
