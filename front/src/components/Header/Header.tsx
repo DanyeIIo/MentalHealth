@@ -1,10 +1,11 @@
 import styles from './header.module.scss'
 import Navbar from './nav/Navbar';
+import logo from '/public/assets/logo.png'
 
 const Header = () => {
     return (
         <header className={styles.header}>
-            <h1>Mental Health</h1>
+            <img src={logo} alt="logo" />
             <Navbar />
         </header>
     )

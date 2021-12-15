@@ -1,0 +1,52 @@
+.general {
+    width: 80%;
+    margin: 1em auto;
+    font-size: 28px;
+    color: purple;
+    @media only screen and (max-width: 900px) {
+        font-size: 24px;
+        width: 90%;
+    }
+    section {
+        margin: 1.5em 0;
+        .headlines {
+            font-size: 34px;
+            text-align: center;
+            padding: 1em;
+            @media only screen and (max-width: 550px) {
+                font-size: 28px;
+            }
+        }
+        ul {
+            margin: 0 0.3em;
+            li {
+                padding: 0.3em;
+            }
+        }
+        .btn {
+            display: block;
+            color: white;
+            font-size: inherit;
+            margin: 2em auto;
+            padding: 0.3em 4em;
+            background: linear-gradient(45deg, #3023ae 0%, #f09 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .link {
+            cursor: pointer;
+            text-decoration: underline;
+            &:hover {
+                color: #f09;
+            }
+        }
+    }
+}
+.calendar {
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: gray;
+}

@@ -1,0 +1,44 @@
+.general {
+    width: 80%;
+    margin: 1em auto;
+    font-size: 28px;
+    text-align: center;
+    color: purple;
+    @media only screen and (max-width: 900px) {
+        font-size: 24px;
+        width: 90%;
+    }
+    img {
+        display: block;
+        margin: 2em auto;
+        width: 60%;
+        @media only screen and (max-width: 900px) {
+            width: 80%;
+        }
+    }
+    .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 3em 0;
+        @media only screen and (max-width: 670px) {
+            justify-content: center;
+        }
+        div {
+            width: max(33%, 270px);
+            padding: 2em 0;
+        }
+    }
+    button {
+        color: white;
+        font-size: inherit;
+        margin: 2em auto;
+        padding: 0.3em 4em;
+        background: linear-gradient(45deg, #3023ae 0%, #f09 100%);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
+    }
+}
