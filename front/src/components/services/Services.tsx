@@ -1,5 +1,4 @@
 import styles from './services.module.scss'
-import React, { useState } from 'react';
 
 const Services = () => {
 
