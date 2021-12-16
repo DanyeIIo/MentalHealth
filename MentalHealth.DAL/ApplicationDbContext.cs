@@ -28,6 +28,13 @@ namespace MentalHealth.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var testData = new InitializeData(_hasher);
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.HasData(testData.AdminRole, testData.UserRole);
+            });
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.Property(x => x.JobTitle)
@@ -42,6 +49,9 @@ namespace MentalHealth.DAL
 
                 entity.HasMany(x => x.TestResults)
                     .WithOne(x => x.User);
+
+                entity.HasData(testData.Admin);
+
             });
 
             modelBuilder.Entity<TestResult>(entity =>
@@ -63,6 +73,7 @@ namespace MentalHealth.DAL
                     .IsRequired()
                     .HasMaxLength(40);
             });
+
         }
     }
 }

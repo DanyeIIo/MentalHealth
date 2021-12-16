@@ -13,5 +13,7 @@ namespace MentalHealth.DAL
         public static Guid AdminRoleId => new("b4a87d46-f7bf-4339-8223-a3ce07ede3c1");
 
         public static Guid PsychologistRoleId => new("146c287c-7695-4e5f-873d-7a929e60e085");
+        public static Guid Admin => new("146c287c-7695-4e5f-873d-7a929e60e085");
+
     }
 }

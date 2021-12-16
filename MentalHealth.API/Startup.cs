@@ -30,7 +30,6 @@ namespace MentalHealth.API
             services.AddScoped<ApplicationExceptionFilter>();
             services.AddControllers(options =>
                 options.Filters.Add<ApplicationExceptionFilter>());
-
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                     _configuration.GetConnectionString("DefaultConnection"), options =>
                         options.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery))
@@ -38,7 +37,18 @@ namespace MentalHealth.API
                 .EnableSensitiveDataLogging()
                 .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("MentalHealth.API"))
             );
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new()
@@ -83,7 +93,7 @@ namespace MentalHealth.API
                     
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

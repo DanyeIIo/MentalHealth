@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MentalHealth.API.Controllers.Accounts
 {
-    [Route("api/")]
+    [Route("Account/")]
     [ApiController]
     public class AccountController : ControllerBase
     {

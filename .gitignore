@@ -333,7 +333,7 @@ StyleCopReport.xml
 *_h.h
 *.iobj
 *.ipdb
-# *_wpftmp.csproj
+*_wpftmp.csproj
 *.tlog
 
 # Chutzpah Test files
