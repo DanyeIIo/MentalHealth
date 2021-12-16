@@ -22,12 +22,20 @@
         justify-content: space-between;
         align-items: center;
         margin: 3em 0;
-        @media only screen and (max-width: 670px) {
+        @media only screen and (max-width: 1300px) {
             justify-content: center;
         }
         div {
-            width: max(33%, 270px);
+            width: max(33.3%, 350px);
             padding: 2em 0;
+            border: 1px purple solid;
+            @media only screen and (max-width: 1300px) {
+                width: 50%;
+                min-width: 350px;
+            }
+            @media only screen and (max-width: 750px) {
+                width: 90%;
+            }
         }
     }
     button {

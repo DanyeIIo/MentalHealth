@@ -8,9 +8,9 @@ const App = () => {
     return (<>
         <Header />
         {/* <About /> */}
-        {/* <Services /> */}
+        <Services />
         {/* <Authorization /> */}
-        <Registration />
+        {/* <Registration /> */}
     </>)
 }
 

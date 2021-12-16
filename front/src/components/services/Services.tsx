@@ -1,4 +1,5 @@
 import styles from './services.module.scss'
+import schedule from '/public/assets/schedule.png'
 
 const Services = () => {
 
@@ -28,7 +29,7 @@ const Services = () => {
             <section>
                 <p className={styles.headlines}>The schedule</p>
                 {/* calendar */}
-
+                <img src={schedule} alt="" width={'80%'} />
                 {/* calendar */}
                 <button className={styles.btn}>Enroll</button>
             </section>
