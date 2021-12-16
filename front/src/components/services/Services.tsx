@@ -29,7 +29,7 @@ const Services = () => {
             <section>
                 <p className={styles.headlines}>The schedule</p>
                 {/* calendar */}
-                <img src={schedule} alt="" width={'80%'} />
+                <img src={schedule} alt="" />
                 {/* calendar */}
                 <button className={styles.btn}>Enroll</button>
             </section>
