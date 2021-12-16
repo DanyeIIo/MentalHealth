@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MentalHealth.API.Controllers.Accounts
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -54,6 +54,7 @@ namespace MentalHealth.API.Controllers.Accounts
         public async Task<IActionResult> GetMe(CancellationToken cancellationToken = default)
         {
             var user = await _userService.GetMeAsync(User, cancellationToken);
+            
             var response = new Core.Models.User
             {
                 Email = user.Email,
