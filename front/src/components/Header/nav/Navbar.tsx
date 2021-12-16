@@ -6,7 +6,7 @@ const Navbar = () => {
             <span>Emotion Map</span>
             <span>Services</span>
             <span>About Us</span>
-            <span className={styles.sign_in}>Sign In</span>
+            {/* <span className={styles.sign_in}>Sign In</span> */}
         </nav>
     )
 }
