@@ -1,0 +1,30 @@
+.nav {
+    width: max(25%, 350px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 570px) {
+        font-size: 12px;
+    }
+    @media only screen and (max-width: 350px) {
+        font-size: 10px;
+    }
+    span {
+        cursor: pointer;
+        &:hover {
+            color: purple;
+        }
+    }
+    a{
+        text-decoration: none;
+        cursor: pointer;
+        color: #fff;
+        &:hover{
+            text-decoration: none;
+            color: purple;
+        }
+    }
+    // .sign_in {
+    //     padding: 0 1.5em;
+    // }
+}

@@ -1,0 +1,27 @@
+* {
+  text-align: center;
+}
+
+.nav-links {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.front-page-full {
+  height: 100vh;
+}
+
+.app-wrapper {
+  background-color: #eee;
+  height: 100vh; 
+}
+
+.my-tabs {
+  margin: auto;
+  width: 50%;
+  /*border: 3px solid green;*/
+  padding: 10px;
+}

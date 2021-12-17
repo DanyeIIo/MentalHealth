@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    border-right-color: rgb(196, 189, 189);
+}
+.header {
+    width: 100%;
+    padding: 0 10%;
+    height: 10vh;
+    background: linear-gradient(45deg, #3023ae 0%, #f09 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
+    @media only screen and (max-width: 900px) {
+        padding: 0 5%;
+    }
+    img {
+        height: 90%;
+        @media only screen and (max-width: 1050px) {
+            height: 60%;
+        }
+        @media only screen and (max-width: 750px) {
+            height: 40%;
+        }
+    }
+}
